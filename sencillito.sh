@@ -1,5 +1,14 @@
 #!/bin/bash
 
+usage="Usage: $(basename "$0") [[-a] <store_code> <account_ref> | -s <query> | -h]
+
+    Program for search debts using Sencillito API.
+	
+    -a\t\tadd account to conf file (~/.config/sencillito)
+    -s <query>\tsearch for store_code
+    -h\t\tshow this help text
+"
+
 mkdir -p ~/.config/sencillito
 
 # get debt of give commerce code and accountref
@@ -9,7 +18,7 @@ function getDebt () {
 
 # -s search code of commerce
 if [ "$1" = "-s" ]; then
-	curl -si https://www.sencillito.com/utilities | grep -Eo "\"code\":[0-9]{4},\"title\":\"[a-zA-Z0-9_]+( [a-zA-Z0-9_\-]+)*\"" | sort -u | grep -i "$2"
+	curl -si https://www.sencillito.com/utilities | grep -Eo "\"code\":[0-9]{4},\"title\":\"[a-zA-Z0-9_]+([a-zA-Z0-9_\-]+)*\"" | sort -u | grep -i "$2"
 	#TODO fix ticks 
 	exit 0
 fi
@@ -22,8 +31,7 @@ fi
 
 # -h show help info
 if [ "$1" = "-h" ]; then
-	echo help
-	#TODO help
+	printf "$usage"
 	exit 0
 fi
 
@@ -36,7 +44,8 @@ if [ $# = 0 ]; then
 
 		exit 0
 	fi
-	#TODO show help
+	echo Conf file not found.
+	printf "$usage"
 	exit 0
 fi
 
