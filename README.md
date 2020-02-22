@@ -1,8 +1,8 @@
-## SencillitoCLI
+# SencillitoCLI
 
 This is a CLI utility made in BASH for find debts using the Sencillito API (only Chile), you can save your accounts to a file and find all the debts simple running `sencillito` in your terminal.
 
-# Usage
+## Usage
 
     sencillito [[-a] <store_code> <account_ref> | -s <query> | -h]
 
@@ -12,7 +12,7 @@ This is a CLI utility made in BASH for find debts using the Sencillito API (only
         -s <query>	    search for store_code
         -h		        show this help text
 
-# Examples
+## Examples
 Search for Directv `store_code`
 
     $ sencillito -s directv
@@ -35,7 +35,7 @@ Get debts from conf file
     $ sencillito
     49990
 
-# Installation
+## Installation
 
 This bash script internally use **curl**.
 
