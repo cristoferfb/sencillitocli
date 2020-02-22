@@ -9,7 +9,7 @@ This is a CLI utility made in BASH for find debts using the Sencillito API (only
         Program for search debts using Sencillito API.
 	
         -a		        add account to conf file (~/.config/sencillito)
-        -s <query>	    search for store_code
+        -s <query>		search for store_code
         -h		        show this help text
 
 ## Examples
